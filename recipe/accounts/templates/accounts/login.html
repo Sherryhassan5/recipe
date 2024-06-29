@@ -1,0 +1,41 @@
+{% extends 'data/base.html' %}
+{% block title %}
+Register
+{% endblock %}
+{% block content %}
+
+
+<div class="container">
+    <form method="POST" class="card p-3 mt-5 w-50 mx-auto shadow-lg">
+      {% csrf_token %}
+      <h1>Login</h1>
+      <hr>
+        
+      {% for msg in messages %}
+      <div class="w-100 mx-auto">
+          <hr>
+          <div class="alert alert-primary alert-dismissible fade show" role="alert">
+              <strong> {{msg}}</strong>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+      </div>
+      {% endfor %}
+        <div class="mb-3">
+            <label for="title5" class="form-label">Username</label>
+            <input type="text" name="username" class="form-control" id="title5" aria-describedby="emailHelp">
+            
+          </div>
+          
+        <div class="mb-3">
+            <label for="title6" class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" id="title6" aria-describedby="emailHelp">
+            
+          </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <hr>
+        <p>if you don't have a account <a href="{% url 'register' %}">Register Now</a></p>
+      </form>
+</div>
+
+
+{% endblock %}

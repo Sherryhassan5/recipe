@@ -1,0 +1,38 @@
+{% extends 'data/base.html' %}
+{% block title %}
+Recipe Home
+{% endblock %}
+{% block content %}
+
+<div class="container my-5 py-5">
+    <div class="row">
+        <div class="col-6">
+            <h1>Hi, We have developed a recipe keeping library for food enthusiasts</h1>
+            <br>
+            <h1>So, just come over and try diffrent meals for you and your family</h1>
+        </div>
+        <div class="col-6 text-center position-relative">
+            <a href="{% url 'recipes' %}">
+                <button class="btn btn-success py-2 px-5 fs-4 position-absolute" style="bottom:50px;">Checkout
+                    Recipes</button>
+            </a>
+        </div>
+    </div>
+</div>
+
+<hr>
+<div class="container mt-5 text-center">
+    <h1 class="my-5">
+        Search Recipes here
+    </h1>
+    <form action="search_recipe/" method="POST">
+        {% csrf_token %}
+        <div class="input-group mx-auto mb-3 input-group-lg w-50">
+            <input type="text" class="form-control" placeholder="Search your faviorite Recipe"
+                aria-label="Recipient's username" aria-describedby="button-addon2" name="recipe_to_search">
+            <button class="btn btn-outline-none btn-success text-light" type="submit" id="button-addon2">Search</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'data/base.html' %}
+{% block title %}
+Register
+{% endblock %}
+{% block content %}
+
+
+<div class="container">
+    <form method="POST" class="card p-3 mt-5 w-50 mx-auto shadow-lg">
+      {% csrf_token %}
+      <h1>Register</h1>
+
+      {% for msg in messages %}
+    <div class="w-100 mx-auto">
+        <hr>
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+            <strong> {{msg}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+    {% endfor %}
+
+      <hr>
+        <div class="mb-3">
+          <label for="title1" class="form-label">First Name</label>
+          <input type="text" name="first_name" class="form-control" id="title1" aria-describedby="emailHelp">
+          
+        </div>
+        
+        <div class="mb-3">
+            <label for="title2" class="form-label">Last Name</label>
+            <input type="text" name="last_name" class="form-control" id="title2" aria-describedby="emailHelp">
+            
+          </div>
+          <div class="mb-3">
+            <label for="title7" class="form-label">Email</label>
+            <input type="email" name="email" class="form-control" id="title7" aria-describedby="emailHelp">
+            
+          </div>
+        <div class="mb-3">
+            <label for="title3" class="form-label">Username</label>
+            <input type="text" name="username" class="form-control" id="title3" aria-describedby="emailHelp">
+            
+          </div>
+          
+        <div class="mb-3">
+            <label for="title4" class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" id="title4" aria-describedby="emailHelp">
+            
+          </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+        
+          <hr>
+
+        <p>if you already have a account <a href="{% url 'login_page' %}">Login Now</a></p>
+      </form>
+</div>
+
+
+{% endblock %}

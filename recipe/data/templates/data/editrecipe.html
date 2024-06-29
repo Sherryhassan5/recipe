@@ -1,0 +1,32 @@
+{% extends 'data/base.html' %}
+{% block title %}
+Add Recipes
+{% endblock %}
+{% block content %}
+
+
+<div class="container">
+    <form method="POST" enctype="multipart/form-data" class="card p-3 mt-5 w-50 mx-auto shadow-lg">
+      {% csrf_token %}
+      <h1>Update Recipe</h1>
+      <hr>
+        <div class="mb-3">
+          <label for="title" class="form-label">Recipe Title</label>
+          <input type="text" name="recipe-title" class="form-control" value="{{recipe.recipe_title}}" id="title" aria-describedby="emailHelp">
+          
+        </div>
+        <div class="mb-3">
+            
+          <label for="desc" class="form-label">Recipe Description</label>
+          <textarea name="desc" class="form-control" id="desc">{{recipe.recipe_description}}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="img" class="form-label">Recipe Image</label>
+            <input type="file" class="form-control" name="recipe-img" id="img">
+        </div>
+        <button type="submit" class="btn btn-primary">Update Recipe</button>
+      </form>
+</div>
+
+
+{% endblock %}
